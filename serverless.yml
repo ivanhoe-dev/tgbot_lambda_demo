@@ -1,0 +1,22 @@
+service: serverless-nodejs-app
+provider:
+  name: aws
+  runtime: nodejs18.x
+  environment:
+    BOT_TOKEN: 6660602035:AAFYgObHm-qYQEy_cv5IEX30P4JZJW2myKc
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: webhook
+          method: post
+          cors: true
+
+  set-webhook:
+    handler: handler.setWebhook
+    events:
+      - http:
+          path: setWebhook
+          method: post
+          cors: true
